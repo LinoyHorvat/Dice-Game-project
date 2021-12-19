@@ -5,7 +5,7 @@ import Btn from './Btn'
 import Dice from './Dice'
 import './index.css'
 
-const WINNINGSCORE = 100; 
+const WINNINGSCORE = 10; 
 
 class Game extends React.Component {
   state = {
@@ -14,13 +14,16 @@ class Game extends React.Component {
     curtScore: [0, 0],
     dice: [0,0],
     winningScore: WINNINGSCORE,
-    isWon: false,
+    isWon: [false, false],
+    curPlays: [true, false],
     };
     newGame = () => {
       this.setState({curPlayer: 0})
       this.setState({totalScore: [0, 0]})
       this.setState({curtScore: [0, 0]})
       this.setState({dice: [0, 0]})
+      this.setState({isWon: false})
+      this.setState({curPlays: [true, false]})
     }
 
     rollDice2 = () => {
@@ -45,18 +48,18 @@ class Game extends React.Component {
       if (this.state.curPlayer === 0){
         this.setState({totalScore: [this.state.curtScore[0] + this.state.totalScore[0], this.state.totalScore[1]]}, () => {
           this.setState({curPlayer: 1})
+          this.setState({curPlays: [false, true]})
           if (this.state.totalScore[0] >= WINNINGSCORE) {
-            this.setState({isWon: true})
-            this.newGame();
+            this.setState({isWon: [true, false]})
           };
         })
       }
       else {
         this.setState({totalScore: [this.state.totalScore[0], this.state.curtScore[1] + this.state.totalScore[1]]}, () => {
           this.setState({curPlayer: 0})
+          this.setState({curPlays: [true, false]})
           if (this.state.totalScore[1] >= WINNINGSCORE) {
-            this.setState({isWon: true})
-            this.newGame();
+            this.setState({isWon: [false,true]})
           }
         })
       }
@@ -65,15 +68,15 @@ class Game extends React.Component {
   render() {
     return (
       <div className="continuer">
-      <Player PlayerName = "Player1" curtScore = {this.state.curtScore[0]} totalScore = {this.state.totalScore[0]} isWon = {this.state.isWon} />
+      <Player PlayerName = "Player1" curtScore = {this.state.curtScore[0]} totalScore = {this.state.totalScore[0]} isWon = {this.state.isWon[0]} curPlays = {this.state.curPlays[0]}/>
       <div className="game">
       <Btn BtnText ="NEW GAME" callback = {this.newGame}/>
       <Dice diceArr={this.state.dice}/>
       <Btn BtnText ="ROLL DICE" callback = {this.rollDice2} />
       <Btn BtnText ="HOLD" callback = {this.setTotalScore}/>
-      <Btn BtnText ="Final Score = 100" />
+      <Btn BtnText = {WINNINGSCORE}  />
       </div>
-      <Player PlayerName = "Player2" curtScore = {this.state.curtScore[1]} totalScore = {this.state.totalScore[1]}/>
+      <Player PlayerName = "Player2" curtScore = {this.state.curtScore[1]} totalScore = {this.state.totalScore[1]} isWon = {this.state.isWon[1]} curPlays = {this.state.curPlays[1]}/>
       </div>
     )
   }

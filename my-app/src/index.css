@@ -31,7 +31,7 @@ body{
   align-items: center;
   justify-content: space-around;
 }
-.currplayer{
+.curPlays{
   background-color: red;
   color: none;
   margin: auto;
