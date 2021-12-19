@@ -1,12 +1,12 @@
 import React from 'react';
 import './index.css'
-import Dice0 from "../../my-app/src/img/1.png";
-import Dice1 from "../../my-app/src/img/1.png";
-import Dice2 from "../../my-app/src/img/2.png";
-import Dice3 from "../../my-app/src/img/3.png";
-import Dice4 from "../../my-app/src/img/4.png";
-import Dice5 from "../../my-app/src/img/5.png";
-import Dice6 from "../../my-app/src/img/6.png";
+import Dice0 from "../../Dice-Game-project/src/img/1.png";
+import Dice1 from "../../Dice-Game-project/src/img/1.png";
+import Dice2 from "../../Dice-Game-project/src/img/2.png";
+import Dice3 from "../../Dice-Game-project/src/img/3.png";
+import Dice4 from "../../Dice-Game-project/src/img/4.png";
+import Dice5 from "../../Dice-Game-project/src/img/5.png";
+import Dice6 from "../../Dice-Game-project/src/img/6.png";
 
 const diceImages = {
   0: Dice0,
