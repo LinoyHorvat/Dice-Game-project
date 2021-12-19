@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Player from './Player'
 import Btn from './Btn'
 import Dice from './Dice'

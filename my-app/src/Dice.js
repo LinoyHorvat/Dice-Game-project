@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css'
 import Dice0 from "../../my-app/src/img/1.png";
 import Dice1 from "../../my-app/src/img/1.png";
@@ -21,9 +20,9 @@ const diceImages = {
 
 function Dice({diceArr}) {
   return <div className= "dice">
-  <img src={diceImages[diceArr[0]]} style={{height: "100px", width: "100px", margin: "auto"}}></img>
+  <img src={diceImages[diceArr[0]]} alt="dice" style={{height: "100px", width: "100px", margin: "auto"}}></img>
   <br />
-  <img src={diceImages[diceArr[1]]} style={{height: "100px", width: "100px", margin: "auto"}}></img>
+  <img src={diceImages[diceArr[1]]} alt="dice" style={{height: "100px", width: "100px", margin: "auto"}}></img>
   </div>
 
 }
