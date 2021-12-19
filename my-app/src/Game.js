@@ -74,7 +74,7 @@ class Game extends React.Component {
       <Dice diceArr={this.state.dice}/>
       <Btn BtnText ="ROLL DICE" callback = {this.rollDice2} />
       <Btn BtnText ="HOLD" callback = {this.setTotalScore}/>
-      <Btn BtnText = {WINNINGSCORE}  />
+      <Btn className1="winningScore" BtnText = {WINNINGSCORE}  />
       </div>
       <Player PlayerName = "Player2" curtScore = {this.state.curtScore[1]} totalScore = {this.state.totalScore[1]} isWon = {this.state.isWon[1]} curPlays = {this.state.curPlays[1]}/>
       </div>
